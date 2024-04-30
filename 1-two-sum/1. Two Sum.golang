@@ -1,0 +1,14 @@
+func twoSum(nums []int, target int) []int {
+    result := []int{}
+	var l int = len(nums)
+
+    for i:=0; i<l-1; i++ {
+		for j:=i+1; j<l; j++{
+			if nums[i]+nums[j]==target{
+				result = append(result,i,j)
+			}
+		}
+		
+	}
+	return result
+}
