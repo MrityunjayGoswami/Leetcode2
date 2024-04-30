@@ -1,0 +1,29 @@
+    func romanToInt(s string) int {
+
+	type Value struct {
+		value  int
+		before byte
+	}
+
+	dic := map[byte]Value{
+		'I': {1, ' '}, 'V': {5, 'I'}, 'X': {10, 'I'}, 'L': {50, 'X'}, 'C': {100, 'X'}, 'D': {500,               'C'}, 'M': {1000, 'C'},
+	}
+
+	sum := 0
+	before := byte(' ')
+	length := len(s)
+
+	for i := 0; i < length; i++ {
+
+		d := dic[s[i]]
+		sum += d.value
+
+		if before == d.before {
+			sum -= dic[d.before].value * 2
+		}
+
+		before = s[i]
+
+	}
+	return sum
+}
