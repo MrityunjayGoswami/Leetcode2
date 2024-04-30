@@ -1,0 +1,6 @@
+func merge(nums1 []int, m int, nums2 []int, n int)  {
+    ans := []int{}
+    ans= append(nums1[:m],nums2[:n]...)
+	sort.Ints(ans)
+	fmt.Println(ans)
+}
